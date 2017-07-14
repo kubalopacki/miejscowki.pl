@@ -1,0 +1,26 @@
+.map {
+    height: 900px;
+    float: left;
+
+}
+
+.form {
+    float: right;
+    height: 900px;
+    padding: 7px;
+
+}
+
+div#content {
+    width: 1895px;
+    min-height: 900px;
+}
+
+body {
+    background-color: grey;
+}
+
+#description {
+    height: 200px;
+    width: 231.328px;
+}

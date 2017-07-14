@@ -1,0 +1,66 @@
+@font-face {
+    font-family: "better_together";
+    src: url("Fonts/aaaiight-fat.ttf"); format("truetype");
+}
+
+body {
+    background-image: url("Images/skatepark_backround.jpg");
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
+
+}
+
+p {
+    font-family: better_together;
+    font-size: 150px;
+    width: 1900px;
+    height: 600px;
+    padding: 15px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    letter-spacing: 40px;
+    color: black;
+}
+
+.nav-tabs {
+    border-bottom: 0px solid #ddd;
+    text-align: center;
+    border: 0px solid transparent;
+    border-radius: 4px 4px 4px 4px;
+}
+
+.nav-tabs > li > a:hover {
+    border-color: black black black
+}
+
+a {
+    font-family: better_together;
+    color: black;
+    text-decoration: none;
+    font-size: 50px;
+}
+
+.nav-tabs > li > a {
+    margin-left: 800px;
+    line-height: 1;
+    border: 0px solid transparent;
+    border-radius: 20px 70px 20px 70px;
+    vertical-align: middle;
+}
+
+.nav>li:focus, .nav>li:hover {
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-filter: blur(2px);
+    filter: blur(1px);
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
