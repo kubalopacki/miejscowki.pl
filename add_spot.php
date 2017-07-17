@@ -7,11 +7,11 @@ $pdo = new PDO('mysql:host=localhost;dbname=miejscowki;charset=utf8', 'root', 'r
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-$ltd = $_POST['latitude'];
-$lng = $_POST['longitude'];
+$latitude = $_POST['latitude'];
+$longitude = $_POST['longitude'];
 $description = $_POST['description'];
 
-$sql = "INSERT INTO `skateparki` (latitude, longitude, description) VALUES('$ltd', '$lng', '$description')";
+$sql = "INSERT INTO `skateparki` (longitude, latitude, description) VALUES('$longitude', '$latitude', '$description')";
 
 
 $stmt = $pdo->exec($sql);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Maps</title>
@@ -35,7 +35,7 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="longitude">Wysokość geograficzna</label>
+                    <label class="col-md-4 control-label" for="longitude">Długość geograficzna</label>
                     <div class="col-md-8">
                         <input id="longitude" name="longitude" type="text" placeholder="" class="form-control input-md"
                                readonly>
@@ -51,14 +51,14 @@
                     </div>
                 </div>
 
-
-                <!-- File Button -->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="foto_input">Zdjęcie</label>
-                    <div class="col-md-4">
-                        <input id="foto_input" name="foto_input" class="input-file" type="file">
-                    </div>
-                </div>
+                <!--
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="foto_input">Zdjęcie</label>
+                                    <div class="col-md-4">
+                                        <input id="foto_input" name="foto_input" class="input-file" type="file">
+                                    </div>
+                                </div>
+                                -->
 
                 <!-- Button -->
                 <div class="form-group">
@@ -75,6 +75,8 @@
     </div>
 </div>
 
+<?php print_r($places) ?>
+
 <script>
     function myMap() {
         var myCenter = new google.maps.LatLng(52.634424, 19.287858);
@@ -82,24 +84,46 @@
         var mapOptions = {center: myCenter, zoom: 6, disableDefaultUI: true, mapTypeControl: true};
         var map = new google.maps.Map(mapCanvas, mapOptions);
 
+        <!-- To musi wykonać się dla wszystkich rekordów w tabeli skateparki -->
 
-        var skateparkSwidnica = new google.maps.LatLng(50.833325, 16.481564)
-        var marker = new google.maps.Marker({position: skateparkSwidnica});
-        marker.setMap(map);
+        <?php foreach($places as $id => $value): ?>
 
+        var skatepark_id_<?php echo $id ?> = new google.maps.LatLng(<?php echo $value['latitude'] . ", " . $value['longitude'] ?>);
+        var marker_id_<?php echo $id ?> = new google.maps.Marker({position: skatepark_id_<?php echo $id ?>});
+        marker_id_<?php echo $id ?>.setMap(map);
 
-        google.maps.event.addListener(marker, 'click', function () {
-            var infowindow = new google.maps.InfoWindow({
-                content: "Betonowy skatepark w Świdnicy"
+        google.maps.event.addListener(marker_id_<?php echo $id ?>, 'click', function () {
+            var infowindow_id_<?php echo $id ?> = new google.maps.InfoWindow({
+                content: "<?php echo $value['description'] ?>"
             });
-            infowindow.open(map, marker);
+            infowindow_id_<?php echo $id ?>.open(map, marker_id_<?php echo $id ?>)
         });
+
+        <?php endforeach; ?>
+
+        /*
+         var skateparkSwidnica = new google.maps.LatLng(50.833325, 16.481564)
+         var marker = new google.maps.Marker({position: skateparkSwidnica});
+         marker.setMap(map);
+
+         google.maps.event.addListener(marker, 'click', function () {
+         var infowindow = new google.maps.InfoWindow({
+         content: "Betonowy skatepark w Świdnicy"
+         });
+         infowindow.open(map, marker);
+         });
+         */
+
+
+        <!-- Funkcja odpowiedzialna za umieszczanie markera na mapie -->
 
         google.maps.event.addListener(map, 'click', function (event) {
             placeMarker(map, event.latLng);
         });
 
+
     }
+
 
     function placeMarker(map, location) {
         var marker = new google.maps.Marker({
@@ -107,12 +131,13 @@
             map: map
         });
 
-        document.getElementById("latitude").value = location.lat()
-        document.getElementById("longitude").value = location.lng()
+        document.getElementById("latitude").value = location.lat();
+        document.getElementById("longitude").value = location.lng();
     }
 
 
 </script>
+
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCYIp-DMH1HR4QU_xfJsMIE7Sd8nlPFTE&callback=myMap"></script>
 
