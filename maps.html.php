@@ -75,9 +75,10 @@
     </div>
 </div>
 
-<?php print_r($places) ?>
-
 <script>
+
+    var global_marker;
+
     function myMap() {
         var myCenter = new google.maps.LatLng(52.634424, 19.287858);
         var mapCanvas = document.getElementById("map");
@@ -86,53 +87,42 @@
 
         <!-- To musi wykonać się dla wszystkich rekordów w tabeli skateparki -->
 
-        <?php foreach($places as $id => $value): ?>
+        var places = <?php echo json_encode($places) ?>;
 
-        var skatepark_id_<?php echo $id ?> = new google.maps.LatLng(<?php echo $value['latitude'] . ", " . $value['longitude'] ?>);
-        var marker_id_<?php echo $id ?> = new google.maps.Marker({position: skatepark_id_<?php echo $id ?>});
-        marker_id_<?php echo $id ?>.setMap(map);
+        for (var i = 0; i < places.length; ++i) {
 
-        google.maps.event.addListener(marker_id_<?php echo $id ?>, 'click', function () {
-            var infowindow_id_<?php echo $id ?> = new google.maps.InfoWindow({
-                content: "<?php echo $value['description'] ?>"
+            var place = places[i];
+            var position = new google.maps.LatLng(place.latitude, place.longitude);
+            var marker = new google.maps.Marker({position: position});
+            marker.setMap(map);
+            marker.description = place.description;
+            marker.addListener('click', function () {
+                var infowindow = new google.maps.InfoWindow({
+                    content: this.description
+                });
+                infowindow.open(map, this);
             });
-            infowindow_id_<?php echo $id ?>.open(map, marker_id_<?php echo $id ?>)
-        });
-
-        <?php endforeach; ?>
-
-        /*
-         var skateparkSwidnica = new google.maps.LatLng(50.833325, 16.481564)
-         var marker = new google.maps.Marker({position: skateparkSwidnica});
-         marker.setMap(map);
-
-         google.maps.event.addListener(marker, 'click', function () {
-         var infowindow = new google.maps.InfoWindow({
-         content: "Betonowy skatepark w Świdnicy"
-         });
-         infowindow.open(map, marker);
-         });
-         */
-
+        }
 
         <!-- Funkcja odpowiedzialna za umieszczanie markera na mapie -->
 
         google.maps.event.addListener(map, 'click', function (event) {
-            placeMarker(map, event.latLng);
+            if (global_marker) {
+                global_marker.setPosition(event.latLng)
+            } else {
+
+                global_marker = new google.maps.Marker({
+                    position: event.latLng,
+                    map: map,
+                    icon: 'http://maps.google.com/mapfiles/ms/micons/blue-pushpin.png',
+                    shadow: 'http://maps.google.com/mapfiles/ms/micons/pushpin_shadow.png'
+                });
+            }
+
+            document.getElementById("latitude").value = event.latLng.lat();
+            document.getElementById("longitude").value = event.latLng.lng();
         });
 
-
-    }
-
-
-    function placeMarker(map, location) {
-        var marker = new google.maps.Marker({
-            position: location,
-            map: map
-        });
-
-        document.getElementById("latitude").value = location.lat();
-        document.getElementById("longitude").value = location.lng();
     }
 
 

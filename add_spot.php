@@ -6,16 +6,22 @@ $pdo = new PDO('mysql:host=localhost;dbname=miejscowki;charset=utf8', 'root', 'r
 );
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+if ($_POST['description']) {
+    $latitude = $_POST['latitude'];
+    $longitude = $_POST['longitude'];
+    $description = $_POST['description'];
 
-$latitude = $_POST['latitude'];
-$longitude = $_POST['longitude'];
-$description = $_POST['description'];
-
-$sql = "INSERT INTO `skateparki` (longitude, latitude, description) VALUES('$longitude', '$latitude', '$description')";
+    $sql = "INSERT INTO `skateparki` (longitude, latitude, description) VALUES('$longitude', '$latitude', '$description')";
 
 
-$stmt = $pdo->exec($sql);
+    $stmt = $pdo->prepare($sql);
 
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':longitude', $longitude);
+    $stmt->bindParam(':latitude', $latitude);
+    $stmt->bindParam(':description', $description);
+    $stmt->execute();
+}
 function redirect($url, $code)
 {
     http_response_code($code);
