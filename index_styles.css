@@ -3,12 +3,11 @@
     src: url("Fonts/aaaiight-fat.ttf"); format("truetype");
 }
 
-body {
+.container-fluid {
     background-image: url("Images/skatepark_backround.jpg");
     background-size: cover;
     background-position: center center;
     min-height: 100vh;
-
 }
 
 p {
@@ -50,14 +49,14 @@ a {
     vertical-align: middle;
 }
 
-.nav>li:focus, .nav>li:hover {
+.nav > li:focus, .nav > li:hover {
     text-decoration: none;
     background-color: transparent;
     -webkit-filter: blur(2px);
     filter: blur(1px);
 }
 
-.nav>li>a:focus, .nav>li>a:hover {
+.nav > li > a:focus, .nav > li > a:hover {
     text-decoration: none;
     background-color: transparent;
 }

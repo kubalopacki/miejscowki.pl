@@ -1,26 +1,32 @@
 .map {
-    height: 900px;
+    height: 700px;
     float: left;
 
 }
 
 .form {
     float: right;
-    height: 900px;
-    padding: 7px;
-
-}
-
-div#content {
-    width: 1895px;
-    min-height: 900px;
-}
-
-body {
-    background-color: grey;
+    height: 700px;
+    padding: 50px;
 }
 
 #description {
     height: 200px;
     width: 231.328px;
+}
+
+textarea {
+    resize: none;
+}
+
+.row {
+    height: 720px;
+}
+
+.info {
+    border: 0px;
+}
+
+.textarea {
+    min-height: 120px;
 }

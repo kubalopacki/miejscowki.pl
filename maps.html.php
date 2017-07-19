@@ -2,10 +2,11 @@
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Maps</title>
-    <link href="map_styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="map_styles.css" rel="stylesheet">
     <script>
         function resizeIframe(obj) {
             obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
@@ -14,21 +15,119 @@
 </head>
 
 <body>
-<div id="content">
-    <div class="map" id="map" style="width:80%;height:800px"></div>
-    <div class="form" style="width: 20%">
-        <form class="form-horizontal" action="/add_spot.php" method="post">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9 col-xs-12">
+            <div class="map" id="map" style="width:100%"></div>
+        </div>
+
+        <div class="form col-md-3 col-xs-12">
+            <form class="form-horizontal" action="/add_spot.php" method="post">
+                <fieldset>
+
+                    <!-- Form Name -->
+                    <legend align="left">Nowa miejscówka</legend>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="latitude">Szerokość geograficzna</label>
+                        <div class="col-md-8">
+                            <input id="latitude" name="latitude" type="text" placeholder=""
+                                   class="form-control input-md"
+                                   readonly>
+
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="longitude">Długość geograficzna</label>
+                        <div class="col-md-8">
+                            <input id="longitude" name="longitude" type="text" placeholder=""
+                                   class="form-control input-md"
+                                   readonly>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="description">Opis</label>
+                        <div class="col-md-4">
+                        <textarea class="form-control" id="description" name="description"
+                                  placeholder="Opisz skatepark, napisz czy jest oświetlony, kryty, betonowy, ogrodzony itp."></textarea>
+                        </div>
+                    </div>
+
+                    <!--
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="foto_input">Zdjęcie</label>
+                                        <div class="col-md-4">
+                                            <input id="foto_input" name="foto_input" class="input-file" type="file">
+                                        </div>
+                                    </div>
+                                    -->
+
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="add_spot"></label>
+                        <div class="col-md-4">
+                            <button id="add_spot" name="add_spot" class="btn btn-primary" type="submit">Dodaj nową
+                                miejscówkę!
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Sczegóły które wyświetlają się po kliknięciu na interesujący nas skatepark(marker) -->
+
+<div class="container-fluid">
+    <div class="col-md-12 col-xs-12">
+        <form class="form-horizontal">
             <fieldset>
 
                 <!-- Form Name -->
-                <legend align="left">Nowa miejscówka</legend>
+                <legend id="skatepark_info" align="left">Skatepark:</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="adress">Miasto</label>
+                    <div class="col-md-4">
+                        <input id="city_info" name="city_info" type="text" placeholder=""
+                               class="form-control input-md info" readonly>
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="adress">Adres</label>
+                    <div class="col-md-4">
+                        <input id="street_info" name="street_info" type="text" placeholder=""
+                               class="form-control input-md info" readonly>
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Opis">Opis</label>
+                    <div class="col-md-4">
+                        <textarea id="description_info" name="description_info" type="text" placeholder=""
+                                  class="form-control input-md info textarea" readonly></textarea>
+
+                    </div>
+                </div>
 
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="latitude">Szerokość geograficzna</label>
-                    <div class="col-md-8">
-                        <input id="latitude" name="latitude" type="text" placeholder="" class="form-control input-md"
-                               readonly>
+                    <div class="col-md-4">
+                        <input id="latitude_info" name="latitude_info" type="text" placeholder=""
+                               class="form-control input-md info" readonly>
 
                     </div>
                 </div>
@@ -36,42 +135,16 @@
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="longitude">Długość geograficzna</label>
-                    <div class="col-md-8">
-                        <input id="longitude" name="longitude" type="text" placeholder="" class="form-control input-md"
-                               readonly>
-
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="description">Opis</label>
                     <div class="col-md-4">
-                        <textarea class="form-control" id="description" name="description"
-                                  placeholder="Opisz skatepark, napisz czy jest oświetlony, kryty, betonowy, ogrodzony itp."></textarea>
-                    </div>
-                </div>
+                        <input id="longitude_info" name="longitude_info" type="text" placeholder=""
+                               class="form-control input-md info" readonly>
 
-                <!--
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="foto_input">Zdjęcie</label>
-                                    <div class="col-md-4">
-                                        <input id="foto_input" name="foto_input" class="input-file" type="file">
-                                    </div>
-                                </div>
-                                -->
-
-                <!-- Button -->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="add_spot"></label>
-                    <div class="col-md-4">
-                        <button id="add_spot" name="add_spot" class="btn btn-primary" type="submit">Dodaj nową
-                            miejscówkę!
-                        </button>
                     </div>
                 </div>
 
             </fieldset>
         </form>
+
     </div>
 </div>
 
@@ -88,6 +161,7 @@
         <!-- To musi wykonać się dla wszystkich rekordów w tabeli skateparki -->
 
         var places = <?php echo json_encode($places) ?>;
+        var infowindow;
 
         for (var i = 0; i < places.length; ++i) {
 
@@ -96,15 +170,30 @@
             var marker = new google.maps.Marker({position: position});
             marker.setMap(map);
             marker.description = place.description;
+            marker.city = place.city;
+            marker.street = place.street;
             marker.addListener('click', function () {
-                var infowindow = new google.maps.InfoWindow({
-                    content: this.description
+                if (infowindow) {
+                    delete infowindow;
+                    infowindow.close();
+                }
+                infowindow = new google.maps.InfoWindow({
+                    content: this.city
+
                 });
                 infowindow.open(map, this);
+
+                document.getElementById("description_info").value = this.description;
+                document.getElementById("latitude_info").value = this.position.lat();
+                document.getElementById("longitude_info").value = this.position.lng();
+                document.getElementById("city_info").value = this.city;
+                document.getElementById("street_info").value = this.street;
             });
+
         }
 
-        <!-- Funkcja odpowiedzialna za umieszczanie markera na mapie -->
+        <!-- Funkcja odpowiedzialna za umieszczanie markera na mapie, oraz -->
+        <!-- wypełnienie pól szczegółów pod mapą -->
 
         google.maps.event.addListener(map, 'click', function (event) {
             if (global_marker) {
@@ -130,6 +219,8 @@
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCYIp-DMH1HR4QU_xfJsMIE7Sd8nlPFTE&callback=myMap"></script>
+
+<?php include 'footer.html.php' ?>
 
 </body>
 </html>
