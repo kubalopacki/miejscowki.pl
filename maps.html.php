@@ -32,9 +32,8 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="latitude">Szerokość geograficzna</label>
                         <div class="col-md-8">
-                            <input id="latitude" name="latitude" type="text" placeholder=""
-                                   class="form-control input-md"
-                                   readonly>
+                            <input id="latitude" name="latitude" class="form-control input-md readonly" required
+                                   data-readonly>
 
                         </div>
                     </div>
@@ -43,9 +42,32 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="longitude">Długość geograficzna</label>
                         <div class="col-md-8">
-                            <input id="longitude" name="longitude" type="text" placeholder=""
-                                   class="form-control input-md"
-                                   readonly>
+                            <input id="longitude" name="longitude" class="form-control input-md readonly" required
+                                   data-readonly>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="city">Miasto</label>
+                        <div class="col-md-8">
+                            <input id="city" name="city" class="form-control input-md" required>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="street">Ulica</label>
+                        <div class="col-md-8">
+                            <input id="street" name="street" class="form-control input-md" required>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="link">Link</label>
+                        <div class="col-md-8">
+                            <input id="link" name="link" class="form-control input-md" required>
 
                         </div>
                     </div>
@@ -134,10 +156,20 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="longitude">Długość geograficzna</label>
+                    <label class="col-md-4 control-label" for="longitude_info">Długość geograficzna</label>
                     <div class="col-md-4">
                         <input id="longitude_info" name="longitude_info" type="text" placeholder=""
                                class="form-control input-md info" readonly>
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="link_info">Link</label>
+                    <div class="col-md-4">
+                        <a href="#" id="link_info" name="link_info" class="form-control info text-left"
+                           readonly></a>
 
                     </div>
                 </div>
@@ -172,6 +204,7 @@
             marker.description = place.description;
             marker.city = place.city;
             marker.street = place.street;
+            marker.link = place.link
             marker.addListener('click', function () {
                 if (infowindow) {
                     delete infowindow;
@@ -188,9 +221,12 @@
                 document.getElementById("longitude_info").value = this.position.lng();
                 document.getElementById("city_info").value = this.city;
                 document.getElementById("street_info").value = this.street;
+                document.getElementById("link_info").innerHTML = this.link;
+                document.getElementById("link_info").setAttribute('href', this.link)
             });
 
         }
+
 
         <!-- Funkcja odpowiedzialna za umieszczanie markera na mapie, oraz -->
         <!-- wypełnienie pól szczegółów pod mapą -->

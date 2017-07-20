@@ -30,3 +30,11 @@ textarea {
 .textarea {
     min-height: 120px;
 }
+
+input[data-readonly] {
+    pointer-events: none;
+}
+
+.readonly {
+    background-color: #eeeeee;
+}
