@@ -1,14 +1,9 @@
 @font-face {
     font-family: "better_together";
-    src: url("Fonts/aaaiight-fat.ttf"); format("truetype");
+    src: url("Fonts/mandarin.otf"); format("opentype");
 }
 
-.container-fluid {
-    background-image: url("Images/wei-pan-280881.jpg");
-    background-size: cover;
-    background-position: center center;
-    min-width: 100%;
-    min-height: 100vh;
+.btn-lg {
 
 }
 
@@ -24,7 +19,7 @@ html {
 
 p {
     font-family: better_together;
-    font-size: 150px;
+    font-size: 200px;
     width: 1900px;
     height: 600px;
     padding: 15px;
@@ -73,20 +68,10 @@ a {
     background-color: transparent;
 }
 
-testy {
-    font-family: better_together;
-    padding: 15px;
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    letter-spacing: 40px;
-    color: black;
-}
-
-h1 {
-    font-size: 50px;
+a {
+    font-size: 210px;
     letter-spacing: 15px;
-    color: #eeeeee;
+    color: black;
     font-family: better_together;
     position: absolute;
     top: 50%;
@@ -95,8 +80,34 @@ h1 {
     transform: translate(-50%, -50%)
 }
 
+a.blur {
+    text-decoration: none;
+    color: black;
+}
+
+a.blur:hover, a.blur:focus {
+    text-decoration: none;
+    color: #262626;
+}
+
+.textshadow a.blur, .textshadow a.blur:hover, .textshadow a.blur:focus {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0);
+    outline: 0 none;
+    -webkit-transition: 400ms ease 100ms;
+    -moz-transition: 400ms ease 100ms;
+    transition: 400ms ease 100ms;
+}
+
 .container1 {
     position: relative;
+    background-image: url("Images/sport-skateboard-skateboarder-skateboarding.jpg");
+    background-size: cover;
+    background-position: center center;
+    min-width: 100%;
+    min-height: 100vh;
+    -webkit-filter: blur(3px);
+
 }
 
 /*==================================================

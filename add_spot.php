@@ -27,4 +27,4 @@ $stmt->bindParam(':street', $street);
 $stmt->execute();
 
 
-redirect('/', 303);
+redirect('/maps.php', 303);

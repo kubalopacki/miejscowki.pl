@@ -93,8 +93,10 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="add_spot"></label>
                         <div class="col-md-4">
-                            <button id="add_spot" name="add_spot" class="btn btn-primary" type="submit">Dodaj nową
-                                miejscówkę!
+                            <button onclick="addSpot()" id="add_spot"
+                                    name="add_spot" class="btn btn-primary"
+                                    type="submit">
+                                Dodaj nową miejscówkę!
                             </button>
                         </div>
                     </div>
@@ -248,6 +250,10 @@
             document.getElementById("longitude").value = event.latLng.lng();
         });
 
+    }
+
+    function addSpot() {
+        alert("Twoja miejscówka będzie widoczna na mapie gdy tylko zostanie zaakceptowana przez administratorów.");
     }
 
 
