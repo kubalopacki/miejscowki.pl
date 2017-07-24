@@ -74,7 +74,7 @@ a {
     color: black;
     font-family: better_together;
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
@@ -106,7 +106,7 @@ a.blur:hover, a.blur:focus {
     background-position: center center;
     min-width: 100%;
     min-height: 100vh;
-    -webkit-filter: blur(3px);
+    /* -webkit-filter: blur(3px);  */
 
 }
 

@@ -26,11 +26,11 @@
                 <fieldset>
 
                     <!-- Form Name -->
-                    <legend align="left">Nowa miejscówka</legend>
+                    <legend align="left">New skatepark <a class="howto" href="howto.html">  (how to)</a></legend>
 
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="latitude">Szerokość geograficzna</label>
+                        <label class="col-md-4 control-label" for="latitude">Latitude</label>
                         <div class="col-md-8">
                             <input id="latitude" name="latitude" class="form-control input-md readonly" required
                                    data-readonly>
@@ -40,7 +40,7 @@
 
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="longitude">Długość geograficzna</label>
+                        <label class="col-md-4 control-label" for="longitude">Longitude</label>
                         <div class="col-md-8">
                             <input id="longitude" name="longitude" class="form-control input-md readonly" required
                                    data-readonly>
@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="city">Miasto</label>
+                        <label class="col-md-4 control-label" for="city">City</label>
                         <div class="col-md-8">
                             <input id="city" name="city" class="form-control input-md" required>
 
@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="street">Ulica</label>
+                        <label class="col-md-4 control-label" for="street">Adress</label>
                         <div class="col-md-8">
                             <input id="street" name="street" class="form-control input-md" required>
 
@@ -73,10 +73,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="description">Opis</label>
+                        <label class="col-md-4 control-label" for="description">Description</label>
                         <div class="col-md-4">
                         <textarea class="form-control" id="description" name="description"
-                                  placeholder="Opisz skatepark, napisz czy jest oświetlony, kryty, betonowy, ogrodzony itp."></textarea>
+                                  placeholder="Write something about skatepark you are adding. Is it indoor park? Do you have to pay to use it and how much? Is a helmet required etc."></textarea>
                         </div>
                     </div>
 
@@ -87,7 +87,7 @@
                                             <input id="foto_input" name="foto_input" class="input-file" type="file">
                                         </div>
                                     </div>
-                                    -->
+                    -->
 
                     <!-- Button -->
                     <div class="form-group">
@@ -96,7 +96,7 @@
                             <button onclick="addSpot()" id="add_spot"
                                     name="add_spot" class="btn btn-primary"
                                     type="submit">
-                                Dodaj nową miejscówkę!
+                                Add new skatepark!
                             </button>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="adress">Miasto</label>
+                    <label class="col-md-4 control-label" for="adress">City</label>
                     <div class="col-md-4">
                         <input id="city_info" name="city_info" type="text" placeholder=""
                                class="form-control input-md info" readonly>
@@ -128,9 +128,9 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="adress">Adres</label>
+                    <label class="col-md-4 control-label" for="adress">Adress</label>
                     <div class="col-md-4">
-                        <input id="street_info" name="street_info" type="text" placeholder=""
+                        <input id="street_info" name="street_info" type="text"
                                class="form-control input-md info" readonly>
 
                     </div>
@@ -138,9 +138,9 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="Opis">Opis</label>
+                    <label class="col-md-4 control-label" for="description_info">Description</label>
                     <div class="col-md-4">
-                        <textarea id="description_info" name="description_info" type="text" placeholder=""
+                        <textarea id="description_info" name="description_info"
                                   class="form-control input-md info textarea" readonly></textarea>
 
                     </div>
@@ -148,9 +148,9 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="latitude">Szerokość geograficzna</label>
+                    <label class="col-md-4 control-label" for="latitude">Latitude</label>
                     <div class="col-md-4">
-                        <input id="latitude_info" name="latitude_info" type="text" placeholder=""
+                        <input id="latitude_info" name="latitude_info" type="text"
                                class="form-control input-md info" readonly>
 
                     </div>
@@ -158,7 +158,7 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="longitude_info">Długość geograficzna</label>
+                    <label class="col-md-4 control-label" for="longitude_info">Longitude</label>
                     <div class="col-md-4">
                         <input id="longitude_info" name="longitude_info" type="text" placeholder=""
                                class="form-control input-md info" readonly>
@@ -206,7 +206,7 @@
             marker.description = place.description;
             marker.city = place.city;
             marker.street = place.street;
-            marker.link = place.link
+            marker.link = place.link;
             marker.addListener('click', function () {
                 if (infowindow) {
                     delete infowindow;
@@ -226,6 +226,7 @@
                 document.getElementById("link_info").innerHTML = this.link;
                 document.getElementById("link_info").setAttribute('href', this.link)
             });
+
 
         }
 
@@ -253,7 +254,7 @@
     }
 
     function addSpot() {
-        alert("Twoja miejscówka będzie widoczna na mapie gdy tylko zostanie zaakceptowana przez administratorów.");
+        alert("Your spot will be available as soon as  we approve it :)");
     }
 
 

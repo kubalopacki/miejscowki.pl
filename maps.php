@@ -7,7 +7,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=miejscowki;charset=utf8', 'root', 'r
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-$sql = "SELECT * FROM skateparki";
+$sql = "SELECT * FROM skateparki WHERE visible=1 ";
 $stmt = $pdo->query($sql);
 $places = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $stmt->closeCursor();

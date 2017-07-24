@@ -1,5 +1,5 @@
 <div class="container-fluid">
     <footer>
-        <p>&copy; 2017 Kuba Łopacki</p>
+        <p><a class="ridelite" href="https://www.facebook.com/ridelite/">RIDELITE</a> &copy; 2017 Kuba Łopacki</p>
     </footer>
 </div>

@@ -1,0 +1,17 @@
+.alert {
+    padding-left: 670px;
+}
+
+.ridelite {
+    font-family: better_together;
+}
+
+@font-face {
+    font-family: "better_together";
+    src: url("/Fonts/aaaiight.ttf"); format("truetype");
+
+}
+
+.instruction {
+    font-size: 25px;
+}
