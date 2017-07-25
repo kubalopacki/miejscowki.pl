@@ -22,11 +22,11 @@
         </div>
 
         <div class="form col-md-3 col-xs-12">
-            <form class="form-horizontal" action="/add_spot.php" method="post">
+            <form enctype="multipart/form-data" class="form-horizontal" action="/add_spot.php" method="post">
                 <fieldset>
 
                     <!-- Form Name -->
-                    <legend align="left">New skatepark <a class="howto" href="howto.html">  (how to)</a></legend>
+                    <legend align="left">New skatepark <a class="howto" href="howto.html"> (how to)</a></legend>
 
                     <!-- Text input-->
                     <div class="form-group">
@@ -74,11 +74,20 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="description">Description</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                         <textarea class="form-control" id="description" name="description"
                                   placeholder="Write something about skatepark you are adding. Is it indoor park? Do you have to pay to use it and how much? Is a helmet required etc."></textarea>
                         </div>
                     </div>
+
+                    <!-- File Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="image">Image</label>
+                        <div class="col-md-8">
+                            <input id="image" name="image" class="input-file" type="file">
+                        </div>
+                    </div>
+
 
                     <!--
                                     <div class="form-group">
@@ -176,6 +185,9 @@
                     </div>
                 </div>
 
+                <!-- CHWILOWE -->
+                <img id="image_info" src="Images">
+
             </fieldset>
         </form>
 
@@ -207,6 +219,7 @@
             marker.city = place.city;
             marker.street = place.street;
             marker.link = place.link;
+            marker.url = place.url;
             marker.addListener('click', function () {
                 if (infowindow) {
                     delete infowindow;
@@ -224,7 +237,8 @@
                 document.getElementById("city_info").value = this.city;
                 document.getElementById("street_info").value = this.street;
                 document.getElementById("link_info").innerHTML = this.link;
-                document.getElementById("link_info").setAttribute('href', this.link)
+                document.getElementById("link_info").setAttribute('href', this.link);
+                document.getElementById("image_info").setAttribute('src', this.url);
             });
 
 
