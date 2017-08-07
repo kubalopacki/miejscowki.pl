@@ -2,6 +2,8 @@
 
 redirect('/maps.php', 303);
 
+/*
+
 $data = file_get_contents("mapdata.txt");
 $data2 = json_decode($data, true);
 
@@ -42,3 +44,4 @@ foreach ($mpgpoland as $id => $item) {
             VALUES('$longitude', '$latitude', '$visible', '$country', '$adress', '$link', '$description' );";
     echo $sql . PHP_EOL;
 }
+*/

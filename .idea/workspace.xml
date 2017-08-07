@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71abb614-4a53-4cbe-8484-ceb51a3400c9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions.php" afterPath="$PROJECT_DIR$/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insert_places.php" afterPath="$PROJECT_DIR$/insert_places.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -94,14 +93,14 @@
       <file leaf-file-name="insert_places.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/insert_places.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="34" lean-forward="false" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+            <state relative-caret-position="782">
+              <caret line="46" column="2" lean-forward="false" selection-start-line="46" selection-start-column="2" selection-end-line="46" selection-end-column="2" />
               <folding>
-                <marker date="1502090611273" expanded="true" signature="735:759" ph="INSERT INTO `skateparki`... " />
-                <marker date="1502090611273" expanded="true" signature="735:761" ph="INSERT INTO `skateparki`... " />
-                <marker date="1502090611273" expanded="true" signature="735:854" ph="INSERT INTO `skateparki`... " />
-                <marker date="1502090611273" expanded="true" signature="735:892" ph="INSERT INTO `skateparki`... " />
-                <marker date="1502090611273" expanded="true" signature="735:941" ph="INSERT INTO `skateparki`... " />
+                <marker date="1502090945096" expanded="true" signature="739:763" ph="INSERT INTO `skateparki`... " />
+                <marker date="1502090945096" expanded="true" signature="739:765" ph="INSERT INTO `skateparki`... " />
+                <marker date="1502090945096" expanded="true" signature="739:858" ph="INSERT INTO `skateparki`... " />
+                <marker date="1502090945096" expanded="true" signature="739:896" ph="INSERT INTO `skateparki`... " />
+                <marker date="1502090945096" expanded="true" signature="739:945" ph="INSERT INTO `skateparki`... " />
               </folding>
             </state>
           </provider>
@@ -344,12 +343,12 @@
       <workItem from="1501664610462" duration="6325000" />
       <workItem from="1501745659723" duration="2237000" />
       <workItem from="1501833321955" duration="7487000" />
-      <workItem from="1502090347091" duration="323000" />
+      <workItem from="1502090347091" duration="599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120719000" />
+    <option name="totallyTimeSpent" value="120995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1878" height="1040" extended-state="0" />
@@ -783,14 +782,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/insert_places.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="34" lean-forward="false" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+        <state relative-caret-position="782">
+          <caret line="46" column="2" lean-forward="false" selection-start-line="46" selection-start-column="2" selection-end-line="46" selection-end-column="2" />
           <folding>
-            <marker date="1502090611273" expanded="true" signature="735:759" ph="INSERT INTO `skateparki`... " />
-            <marker date="1502090611273" expanded="true" signature="735:761" ph="INSERT INTO `skateparki`... " />
-            <marker date="1502090611273" expanded="true" signature="735:854" ph="INSERT INTO `skateparki`... " />
-            <marker date="1502090611273" expanded="true" signature="735:892" ph="INSERT INTO `skateparki`... " />
-            <marker date="1502090611273" expanded="true" signature="735:941" ph="INSERT INTO `skateparki`... " />
+            <marker date="1502090945096" expanded="true" signature="739:763" ph="INSERT INTO `skateparki`... " />
+            <marker date="1502090945096" expanded="true" signature="739:765" ph="INSERT INTO `skateparki`... " />
+            <marker date="1502090945096" expanded="true" signature="739:858" ph="INSERT INTO `skateparki`... " />
+            <marker date="1502090945096" expanded="true" signature="739:896" ph="INSERT INTO `skateparki`... " />
+            <marker date="1502090945096" expanded="true" signature="739:945" ph="INSERT INTO `skateparki`... " />
           </folding>
         </state>
       </provider>
