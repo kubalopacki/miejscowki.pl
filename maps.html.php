@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Maps</title>
+    <title>Myspot Maps</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="map_styles.css" rel="stylesheet">
@@ -17,11 +17,11 @@
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-9 col-xs-12">
+        <div class="col-lg-9 col-sm-9 col-md-9 col-xs-12">
             <div class="map" id="map" style="width:100%"></div>
         </div>
 
-        <div class="form col-md-3 col-xs-12">
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
             <form enctype="multipart/form-data" class="form-horizontal" action="/add_spot.php" method="post">
                 <fieldset>
 
@@ -88,7 +88,6 @@
                         </div>
                     </div>
 
-
                     <!--
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="foto_input">Zdjęcie</label>
@@ -118,6 +117,7 @@
 <!-- Sczegóły które wyświetlają się po kliknięciu na interesujący nas skatepark(marker) -->
 
 <div class="container-fluid">
+    <div class="row">
     <div class="col-md-12 col-xs-12">
         <form class="form-horizontal">
             <fieldset>
@@ -185,13 +185,11 @@
                     </div>
                 </div>
 
-                <!-- CHWILOWE -->
-                <img id="image_info" src="Images">
-
             </fieldset>
         </form>
 
     </div>
+</div>
 </div>
 
 <script>

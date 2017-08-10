@@ -1,47 +1,57 @@
 <?php
 
-redirect('/maps.php', 303);
+//redirect('/maps.php', 303);
 
-/*
 
 $data = file_get_contents("mapdata.txt");
 $data2 = json_decode($data, true);
 
-print_r($data2);
+print_r($data2['markers']);
+
+$sweden = [];
+
+foreach ($data2['markers'] as $id => $item) {
+
+    $link = substr($item['description'], 9);
+    $pos = strpos($link, '"');
+    $link = substr($link, 0, $pos);
 
 
-$mpgpoland = [];
-foreach ($data2['0']['markers'] as $id => $item) {
+    $city = substr($item['description'], 0, -4);
+    $pos = strpos($city, '>');
+    $city = substr($city, $pos+1);
 
-    $mpgpoland[] = [
-        $item['title'],
-        $item['coord_x'],
-        $item['coord_y'],
-        $item['address'],
-        $item['params']['marker_title_link'],
-        '1',
-        'Poland',
-        $item['description'],
+
+
+    $sweden[] = [
+        $item['lat'],
+        $item['lng'],
+        $city,
+        $link,
     ];
+
+
 }
 
-print_r($mpgpoland);
+print_r($sweden);
 
-foreach ($mpgpoland as $id => $item) {
 
-    $latitude = $item['2'];
+
+
+
+foreach ($sweden as $id => $item) {
+
+    $latitude = $item['0'];
     $longitude = $item['1'];
-    $visible = $item['5'];
-    $country = $item['6'];
-    $adress = $item['3'];
-    $description = $item['7'];
-    $link = $item['4'];
-    $city = $item['0'];
+    $visible = '1';
+    $country = 'Sweden';
+    $adress = '-';
+    $link = $item['3'];
+    $city = $item['2'];
 
 
 
     $sql = "INSERT INTO `skateparki` (`longitude`, `latitude`, `visible`, `country`, `street`, `link`, `city`) 
-            VALUES('$longitude', '$latitude', '$visible', '$country', '$adress', '$link', '$description' );";
+            VALUES('$longitude', '$latitude', '$visible', '$country', '$adress', '$link', '$city' );";
     echo $sql . PHP_EOL;
 }
-*/
