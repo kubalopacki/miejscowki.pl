@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="link">Link</label>
                         <div class="col-md-8">
-                            <input id="link" name="link" class="form-control input-md" required>
+                            <input id="link" name="link" class="form-control input-md">
 
                         </div>
                     </div>
@@ -118,78 +118,100 @@
 
 <div class="container-fluid">
     <div class="row">
-    <div class="col-md-12 col-xs-12">
-        <form class="form-horizontal">
-            <fieldset>
+        <div class="col-md-12 col-xs-12">
+            <form class="form-horizontal">
+                <fieldset>
 
-                <!-- Form Name -->
-                <legend id="skatepark_info" align="left">Skatepark:</legend>
+                    <!-- Form Name -->
+                    <legend id="skatepark_info" align="left">Skatepark:</legend>
 
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="adress">City</label>
-                    <div class="col-md-4">
-                        <input id="city_info" name="city_info" type="text" placeholder=""
-                               class="form-control input-md info" readonly>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="adress">City</label>
+                        <div class="col-md-4">
+                            <input id="city_info" name="city_info" type="text" placeholder=""
+                                   class="form-control input-md info" readonly>
 
+                        </div>
                     </div>
-                </div>
 
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="adress">Adress</label>
-                    <div class="col-md-4">
-                        <input id="street_info" name="street_info" type="text"
-                               class="form-control input-md info" readonly>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="adress">Adress</label>
+                        <div class="col-md-4">
+                            <input id="street_info" name="street_info" type="text"
+                                   class="form-control input-md info" readonly>
 
+                        </div>
                     </div>
-                </div>
 
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="description_info">Description</label>
-                    <div class="col-md-4">
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="description_info">Description</label>
+                        <div class="col-md-4">
                         <textarea id="description_info" name="description_info"
                                   class="form-control input-md info textarea" readonly></textarea>
 
+                        </div>
                     </div>
-                </div>
 
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="latitude">Latitude</label>
-                    <div class="col-md-4">
-                        <input id="latitude_info" name="latitude_info" type="text"
-                               class="form-control input-md info" readonly>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="latitude">Latitude</label>
+                        <div class="col-md-4">
+                            <input id="latitude_info" name="latitude_info" type="text"
+                                   class="form-control input-md info" readonly>
 
+                        </div>
                     </div>
-                </div>
 
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="longitude_info">Longitude</label>
-                    <div class="col-md-4">
-                        <input id="longitude_info" name="longitude_info" type="text" placeholder=""
-                               class="form-control input-md info" readonly>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="longitude_info">Longitude</label>
+                        <div class="col-md-4">
+                            <input id="longitude_info" name="longitude_info" type="text" placeholder=""
+                                   class="form-control input-md info" readonly>
 
+                        </div>
                     </div>
-                </div>
 
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="link_info">Link</label>
-                    <div class="col-md-4">
-                        <a href="#" id="link_info" name="link_info" class="form-control info text-left"
-                           readonly></a>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="link_info">Link</label>
+                        <div class="col-md-4">
+                            <a href="" id="link_info" target="_blank" name="link_info"
+                               class="form-control info text-left"
+                               readonly></a>
 
+                        </div>
                     </div>
-                </div>
 
-            </fieldset>
-        </form>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="locals">Locals you can contact with if you are going to visit this spot.</label>
+                        <div class="col-md-4">
+                            <input id="longitude_info" name="longitude_info" type="text" placeholder=""
+                                   class="form-control input-md info" readonly>
+                        </div>
+                    </div>
 
+
+                            <!-- Form Name -->
+
+                            <!-- Button -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="imlocal"></label>
+                                <div class="col-md-4">
+                                    <button id="imlocal" name="imlocal" class="btn btn-primary">I am local!</button>
+                                </div>
+                            </div>
+
+
+                </fieldset>
+            </form>
+
+        </div>
     </div>
-</div>
 </div>
 
 <script>

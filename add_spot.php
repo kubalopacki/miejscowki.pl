@@ -16,18 +16,18 @@ $street = $_POST['street'];
 $link = $_POST['link'];
 
 
-print_r($_FILES);
+//print_r($_FILES);
 
-checkUploadedImage();
+//checkUploadedImage();
 
-checkTypeOfUploadedImage();
-
-
-$url = saveUploadedImage();
+//checkTypeOfUploadedImage();
 
 
-$sql = "INSERT INTO `skateparki` (longitude, latitude, description, city, street, link, url) 
-            VALUES(:longitude, :latitude, :description, :city, :street, :link, :url)";
+//$url = saveUploadedImage();
+
+
+$sql = "INSERT INTO `skateparki` (longitude, latitude, description, city, street, link) 
+            VALUES(:longitude, :latitude, :description, :city, :street, :link)";
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':longitude', $longitude);
@@ -36,9 +36,9 @@ $stmt->bindParam(':description', $description);
 $stmt->bindParam(':city', $city);
 $stmt->bindParam(':street', $street);
 $stmt->bindParam(':link', $link);
-$stmt->bindParam(':url', $url);
+//$stmt->bindParam(':url', $url);
 $stmt->execute();
 
 
 
-//redirect('/maps.php', 303);
+redirect('/maps.php', 303);
