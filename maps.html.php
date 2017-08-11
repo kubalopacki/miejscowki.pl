@@ -188,23 +188,22 @@
 
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="locals">Locals you can contact with if you are going to visit this spot.</label>
+                        <label class="col-md-4 control-label" for="locals">Locals you can contact with if you are going
+                            to visit this spot.</label>
                         <div class="col-md-4">
                             <input id="longitude_info" name="longitude_info" type="text" placeholder=""
                                    class="form-control input-md info" readonly>
                         </div>
                     </div>
 
-
-                            <!-- Form Name -->
-
-                            <!-- Button -->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="imlocal"></label>
-                                <div class="col-md-4">
-                                    <button id="imlocal" name="imlocal" class="btn btn-primary">I am local!</button>
-                                </div>
-                            </div>
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="imlocal"></label>
+                        <div class="col-md-4">
+                            <a href="iamlocal.html.php" id="imlocal" name="imlocal" class="btn btn-primary disabled">I
+                                am local!</a>
+                        </div>
+                    </div>
 
 
                 </fieldset>
@@ -251,6 +250,7 @@
                 });
                 infowindow.open(map, this);
 
+                document.getElementById("imlocal").setAttribute('class', "btn btn-primary");
                 document.getElementById("description_info").value = this.description;
                 document.getElementById("latitude_info").value = this.position.lat();
                 document.getElementById("longitude_info").value = this.position.lng();
@@ -266,7 +266,7 @@
 
 
         <!-- Funkcja odpowiedzialna za umieszczanie markera na mapie, oraz -->
-        <!-- wypełnienie pól szczegółów pod mapą -->
+        <!-- wypełnienie pól szczegółów pod mapą, po kliknięciu na marker -->
 
         google.maps.event.addListener(map, 'click', function (event) {
             if (global_marker) {
