@@ -30,9 +30,9 @@ textarea {
     resize: none;
 }
 
-
-
-
+.ridelite {
+    font-family: better_together;
+}
 
 .textarea {
     min-height: 120px;
@@ -45,10 +45,6 @@ input[data-readonly] {
 
 .readonly {
     background-color: #eeeeee;
-}
-
-.ridelite {
-    font-family: better_together;
 }
 
 a:focus, a:hover {

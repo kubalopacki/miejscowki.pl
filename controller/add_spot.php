@@ -1,6 +1,6 @@
 <?php
 
-require 'functions.php';
+require '../lib/functions.php';
 
 $pdo = new PDO('mysql:host=localhost;dbname=miejscowki;charset=utf8', 'root', 'root', array(
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'")
@@ -42,4 +42,4 @@ $stmt->bindParam(':dater', $dater);
 $stmt->execute();
 
 
-redirect('/maps.php', 303);
+redirect('/maps', 303);

@@ -1,6 +1,6 @@
 @font-face {
     font-family: "better_together";
-    src: url("Fonts/mandarin.otf"); format("opentype");
+    src: url("../Fonts/mandarin.otf"); format("opentype");
 }
 
 .btn-lg {
@@ -101,7 +101,7 @@ a.blur:hover, a.blur:focus {
 
 .container1 {
     position: relative;
-    background-image: url("Images/sport-skateboard-skateboarder-skateboarding.jpg");
+    background-image: url("../Images/sport-skateboard-skateboarder-skateboarding.jpg");
     background-size: cover;
     background-position: center center;
     min-width: 100%;

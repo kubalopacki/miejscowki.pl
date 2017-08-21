@@ -2,24 +2,26 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Myspot Manual</title>
+    <title>Myspots/I'am local</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="iamlocal_styles.css" rel="stylesheet">
+    <link href="../assets/iamlocal_styles.css" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid">
 
-
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="post" action="/add_me">
         <fieldset>
 
             <!-- Form Name -->
-            <legend>I am local!</legend>
+
+            <legend>I am local in: <?php echo $skatepark['city'] . " " . $skatepark['street'] ?></legend>
             <div class="row">
-            <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
                 <ul>
-                    <li class="infotext">Upload link to your Facebook account so that riders who are going to visit spot in your hood could contact with you.</li>
+                    <li class="infotext">Upload link to your Facebook account so that riders who are going to visit spot
+                        in your hood could contact with you.
+                    </li>
                 </ul>
             </div>
             <!-- Text input-->
@@ -32,6 +34,8 @@
                 </div>
             </div>
 
+            <input type="hidden" value="<?php echo intval($_GET['id']) ?>" name="skatepark_id">
+
 
             <!-- Text input-->
             <div class="form-group">
@@ -42,12 +46,11 @@
                 </div>
             </div>
 
-
             <!-- Button (Double) -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="button1id">Double Button</label>
+                <label class="col-md-4 control-label" for="button1id"></label>
                 <div class="col-md-8">
-                    <button id="button1id" name="button1id" class="btn btn-success">Good Button</button>
+                    <button type="submit" class="btn btn-success">Add me!</button>
                 </div>
             </div>
 

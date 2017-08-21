@@ -6,7 +6,7 @@
     <title>Myspot Maps</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="map_styles.css" rel="stylesheet">
+    <link href="../assets/map_styles.css" rel="stylesheet">
     <script>
         function resizeIframe(obj) {
             obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
@@ -22,11 +22,13 @@
         </div>
 
         <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
-            <form enctype="multipart/form-data" class="form-horizontal" action="/add_spot.php" method="post">
+            <form enctype="multipart/form-data" class="form-horizontal" action="../controller/add_spot.php"
+                  method="post">
                 <fieldset>
 
                     <!-- Form Name -->
-                    <legend align="left">New skatepark <a class="howto" href="howto.html"> (how to)</a></legend>
+                    <legend align="left">New skatepark <a class="howto" href="../templates/how_to.html"> (how to)</a>
+                    </legend>
 
                     <!-- Text input-->
                     <div class="form-group">
@@ -79,23 +81,24 @@
                                   placeholder="Write something about skatepark you are adding. Is it indoor park? Do you have to pay to use it and how much? Is a helmet required etc."></textarea>
                         </div>
                     </div>
-
-                    <!-- File Button -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="image">Image</label>
-                        <div class="col-md-8">
-                            <input id="image" name="image" class="input-file" type="file">
-                        </div>
-                    </div>
-
                     <!--
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="foto_input">Zdjęcie</label>
-                                        <div class="col-md-4">
-                                            <input id="foto_input" name="foto_input" class="input-file" type="file">
+
+                                    <ZDJECIA>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="image">Image</label>
+                                            <div class="col-md-8">
+                                                <input id="image" name="image" class="input-file" type="file">
+                                            </div>
                                         </div>
-                                    </div>
-                    -->
+
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 control-label" for="foto_input">Zdjęcie</label>
+                                                            <div class="col-md-4">
+                                                                <input id="foto_input" name="foto_input" class="input-file" type="file">
+                                                            </div>
+                                                        </div>
+                                        -->
 
                     <!-- Button -->
                     <div class="form-group">
@@ -191,7 +194,7 @@
                         <label class="col-md-4 control-label" for="locals">Locals you can contact with if you are going
                             to visit this spot.</label>
                         <div class="col-md-4">
-                            <input id="longitude_info" name="longitude_info" type="text" placeholder=""
+                            <input id="locals" name="locals" type="text" placeholder=""
                                    class="form-control input-md info" readonly>
                         </div>
                     </div>
@@ -200,7 +203,8 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="imlocal"></label>
                         <div class="col-md-4">
-                            <a href="iamlocal.html.php" id="imlocal" name="imlocal" class="btn btn-primary disabled">I
+                            <a href="/i_am_local?id=" id="imlocal" name="imlocal"
+                               class="btn btn-primary disabled">I
                                 am local!</a>
                         </div>
                     </div>
@@ -239,6 +243,7 @@
             marker.street = place.street;
             marker.link = place.link;
             marker.url = place.url;
+            marker.id = place.skatepark_id;
             marker.addListener('click', function () {
                 if (infowindow) {
                     delete infowindow;
@@ -246,11 +251,10 @@
                 }
                 infowindow = new google.maps.InfoWindow({
                     content: this.city
-
                 });
                 infowindow.open(map, this);
-
                 document.getElementById("imlocal").setAttribute('class', "btn btn-primary");
+                document.getElementById("imlocal").setAttribute('href', "/i_am_local?id=" + this.id);
                 document.getElementById("description_info").value = this.description;
                 document.getElementById("latitude_info").value = this.position.lat();
                 document.getElementById("longitude_info").value = this.position.lng();
@@ -260,11 +264,7 @@
                 document.getElementById("link_info").setAttribute('href', this.link);
                 document.getElementById("image_info").setAttribute('src', this.url);
             });
-
-
         }
-
-
         <!-- Funkcja odpowiedzialna za umieszczanie markera na mapie, oraz -->
         <!-- wypełnienie pól szczegółów pod mapą, po kliknięciu na marker -->
 
@@ -288,7 +288,7 @@
     }
 
     function addSpot() {
-        alert("Your spot will be available as soon as  we approve it :)");
+        alert("Your spot will be available as soon as we approve it :)");
     }
 
 
