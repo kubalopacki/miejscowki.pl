@@ -63,7 +63,7 @@ function saveUploadedImage()
 
     $basename = md5(uniqid()) . "." . $extension;
 
-    $url = "/Images/$basename";
+    $url = "/images/$basename";
 
     $filename = __DIR__ . $url;
 

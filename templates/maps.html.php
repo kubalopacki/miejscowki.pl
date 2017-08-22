@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Myspot Maps</title>
+    <title>Myspots!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="../assets/map_styles.css" rel="stylesheet">
@@ -182,7 +182,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="link_info">Link</label>
                         <div class="col-md-4">
-                            <a href="" id="link_info" target="_blank" name="link_info"
+                            <a id="link_info" name="link_info"
                                class="form-control info text-left"
                                readonly></a>
 
@@ -194,20 +194,20 @@
                         <label class="col-md-4 control-label" for="locals">Locals you can contact with if you are going
                             to visit this spot.</label>
                         <div class="col-md-4">
-                            <input id="locals" name="locals" type="text" placeholder=""
-                                   class="form-control input-md info" readonly>
+                            <div id="locals" class="form-control input-md info" readonly>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Button -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="imlocal"></label>
-                        <div class="col-md-4">
-                            <a href="/i_am_local?id=" id="imlocal" name="imlocal"
-                               class="btn btn-primary disabled">I
-                                am local!</a>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="imlocal"></label>
+                            <div class="col-md-4">
+                                <a href="/i_am_local?id=" id="imlocal" name="imlocal"
+                                   class="btn btn-primary disabled">I
+                                    am local!</a>
+                            </div>
                         </div>
-                    </div>
 
 
                 </fieldset>
@@ -218,6 +218,7 @@
 </div>
 
 <script>
+
 
     var global_marker;
 
@@ -238,33 +239,47 @@
             var position = new google.maps.LatLng(place.latitude, place.longitude);
             var marker = new google.maps.Marker({position: position});
             marker.setMap(map);
-            marker.description = place.description;
-            marker.city = place.city;
-            marker.street = place.street;
-            marker.link = place.link;
-            marker.url = place.url;
-            marker.id = place.skatepark_id;
+            marker.place = place;
             marker.addListener('click', function () {
                 if (infowindow) {
                     delete infowindow;
                     infowindow.close();
                 }
                 infowindow = new google.maps.InfoWindow({
-                    content: this.city
-                });
+                    content: this.place.city
+                })
+                ;
                 infowindow.open(map, this);
+
+                function showLocal(local, fb_link) {
+                    var link = document.createElement('a');
+                    link.setAttribute('href', local.fb_link);
+                    link.setAttribute('class', 'local_member');
+                    link.setAttribute('target', '_blank');
+                    link.innerHTML = local.name_surname;
+                    document.getElementById("locals").appendChild(link);
+                }
+
+
+                console.log(this);
                 document.getElementById("imlocal").setAttribute('class', "btn btn-primary");
-                document.getElementById("imlocal").setAttribute('href', "/i_am_local?id=" + this.id);
-                document.getElementById("description_info").value = this.description;
+                document.getElementById("imlocal").setAttribute('href', "/i_am_local?id=" + this.place.skatepark_id);
+                document.getElementById("description_info").value = this.place.description;
                 document.getElementById("latitude_info").value = this.position.lat();
                 document.getElementById("longitude_info").value = this.position.lng();
-                document.getElementById("city_info").value = this.city;
-                document.getElementById("street_info").value = this.street;
-                document.getElementById("link_info").innerHTML = this.link;
-                document.getElementById("link_info").setAttribute('href', this.link);
-                document.getElementById("image_info").setAttribute('src', this.url);
+                document.getElementById("city_info").value = this.place.city;
+                document.getElementById("locals").innerHTML = '';
+                this.place.locals.forEach(showLocal);
+                document.getElementById("street_info").value = this.place.street;
+                if(this.place.link) {
+                    document.getElementById("link_info").innerHTML = this.place.link;
+                    document.getElementById("link_info").setAttribute('target', '_blank');
+                    document.getElementById("link_info").setAttribute('href', this.place.link);
+                }
+                document.getElementById("image_info").setAttribute('src', this.place.url);
             });
         }
+
         <!-- Funkcja odpowiedzialna za umieszczanie markera na mapie, oraz -->
         <!-- wypełnienie pól szczegółów pod mapą, po kliknięciu na marker -->
 

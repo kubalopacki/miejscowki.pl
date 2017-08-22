@@ -41,7 +41,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="fb_link">Link to your Facebook account</label>
                 <div class="col-md-4">
-                    <input id="fb_link" name="fb_link" type="text" placeholder="" class="form-control input-md">
+                    <input id="fb_link" name="fb_link" type="text" pattern="https?://.+" required placeholder="https://www.facebook.com/YOURFB" class="form-control input-md">
 
                 </div>
             </div>

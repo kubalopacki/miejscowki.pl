@@ -9,22 +9,27 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $sql = "SELECT * FROM skateparki WHERE visible=1 ";
 $stmt = $pdo->query($sql);
-$places = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$places = [];
+while ($place = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $places[$place['skatepark_id']] = $place;
+    $places[$place['skatepark_id']]['locals'] = [];
+}
+//$places = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $stmt->closeCursor();
+
 
 $sql = "SELECT * FROM locals";
 $stmt = $pdo->query($sql);
 $locals = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $stmt->closeCursor();
 
-$locals2 = [];
-foreach ($locals as $id => $item) {
-    if (array_key_exists($item['skatepark_id'], $locals2)) {
-        array_push($locals2[$item['skatepark_id']], $item);
-    } else {
-        $locals2[$item['skatepark_id']] = [$item];
-    }
+foreach ($locals as $local) {
+    $places[$local['skatepark_id']]['locals'][] = $local;
 }
+
+$places = array_values($places);
+
 
 
 require TEMPLATES_PATH . '/maps.html.php';

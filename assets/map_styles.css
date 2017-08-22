@@ -1,6 +1,6 @@
 @font-face {
     font-family: "better_together";
-    src: url("/Fonts/aaaiight.ttf"); format("truetype");
+    src: url("/fonts/aaaiight.ttf"); format("truetype");
 
 }
 
@@ -55,4 +55,8 @@ a:focus, a:hover {
 
 .howto {
     font-size: 12px;
+}
+
+a.local_member {
+    margin-right:  10px;
 }
